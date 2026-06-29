@@ -282,6 +282,8 @@
         lightboxInfo.querySelector('.lightbox__desc').textContent = data.desc;
         lightbox.classList.add('open');
         document.body.style.overflow = 'hidden';
+        // Focus trap: focus the close button
+        $('.lightbox__close').focus();
     }
 
     function closeLightbox() {
@@ -302,7 +304,15 @@
     }
 
     galleryItems.forEach((item, i) => {
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
         item.addEventListener('click', () => openLightbox(i));
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(i);
+            }
+        });
     });
 
     $('.lightbox__close').addEventListener('click', closeLightbox);
@@ -318,6 +328,20 @@
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') navigateLightbox(-1);
         if (e.key === 'ArrowRight') navigateLightbox(1);
+
+        // Focus trap
+        if (e.key === 'Tab') {
+            const focusable = lightbox.querySelectorAll('button');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
     });
 
     /* ===== Scroll Reveal ===== */

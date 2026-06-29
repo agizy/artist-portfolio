@@ -386,9 +386,53 @@ ul { list-style: none; }
     text-align: center;
     padding: 0 var(--gutter);
     position: relative;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(18px) saturate(0.6);
+    transform: scale(1.15);
+    opacity: 0.35;
+}
+
+[data-theme="dark"] .hero__bg-image {
+    opacity: 0.2;
+    filter: blur(20px) saturate(0.4);
+}
+
+.hero__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(246, 243, 238, 0.6) 0%,
+        rgba(246, 243, 238, 0.85) 40%,
+        var(--bg) 100%
+    );
+}
+
+[data-theme="dark"] .hero__bg-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(20, 19, 17, 0.5) 0%,
+        rgba(20, 19, 17, 0.85) 40%,
+        var(--bg) 100%
+    );
 }
 
 .hero__content {
+    position: relative;
+    z-index: 1;
     max-width: 700px;
 }
 
@@ -417,6 +461,7 @@ ul { list-style: none; }
     line-height: 1.05;
     letter-spacing: -0.01em;
     color: var(--text-primary);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
 }
 
 .hero__name-jp {
@@ -734,6 +779,30 @@ ul { list-style: none; }
     border-radius: 4px;
 }
 
+.about__image-wrap--placeholder {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-muted);
+}
+
+.about__placeholder-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
 .about__image {
     width: 100%;
     height: 100%;
@@ -794,9 +863,9 @@ ul { list-style: none; }
 
 .contact__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
 }
 

@@ -43,7 +43,6 @@
             contact_desc: '撮影依頼、コラボレーション、エディトリアルの案件を承ります。アンタナナリボ拠点、全世界対応。',
             contact_email: 'メール',
             contact_phone: '電話',
-            contact_instagram: 'Instagram',
             contact_location: '所在地',
             contact_tokyo: 'Antananarivo 102',
             footer_rights: '全著作権所有。'
@@ -88,7 +87,6 @@
             contact_desc: 'Available for commissions, collaborations, and editorial assignments. Based in Antananarivo, available worldwide.',
             contact_email: 'Email',
             contact_phone: 'Phone',
-            contact_instagram: 'Instagram',
             contact_location: 'Location',
             contact_tokyo: 'Antananarivo 102',
             footer_rights: 'All rights reserved.'
@@ -133,7 +131,6 @@
             contact_desc: 'Disponible pour des commandes, collaborations et missions éditoriales. Basé à Antananarivo, disponible dans le monde entier.',
             contact_email: 'E-mail',
             contact_phone: 'Téléphone',
-            contact_instagram: 'Instagram',
             contact_location: 'Localisation',
             contact_tokyo: 'Antananarivo 102',
             footer_rights: 'Tous droits réservés.'
